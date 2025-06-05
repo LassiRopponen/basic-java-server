@@ -1,0 +1,3 @@
+Extremely basic server implementation I made to test out the Java HttpServer class. Uses [exchange-api](https://github.com/fawazahmed0/exchange-api) to have some data to work with.
+
+Needs Java and Maven.
