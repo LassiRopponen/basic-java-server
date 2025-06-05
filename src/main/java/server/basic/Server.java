@@ -7,9 +7,7 @@ import com.sun.net.httpserver.HttpExchange;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-
+import java.util.concurrent.Executors;
 
 public class Server {
     public static void main(String[] args) throws IOException {
@@ -18,7 +16,7 @@ public class Server {
         server.createContext("/currencies", new CurrenciesHandler());
         server.createContext("/value", new ValueHandler());
 
-        server.setExecutor(null);
+        server.setExecutor(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()));
         server.start();
 
         System.out.println("Server is running on port 8000");
